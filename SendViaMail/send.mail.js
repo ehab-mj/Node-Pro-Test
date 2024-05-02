@@ -25,7 +25,7 @@ app.post('/forgot-password', (req, res) => {
                 from: 'ehabmj1212@gmail.com',
                 to: userFromDB.email,
                 subject: 'Reset Password Link',
-                text: `http://localhost:3000/reset_password/${userFromDB._id}/${token}`
+                text: `http://localhost:3030/reset_password/${userFromDB._id}/${token}`
             };
 
             transporter.sendMail(mailOptions, function (error, info) {

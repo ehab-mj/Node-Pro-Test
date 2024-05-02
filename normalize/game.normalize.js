@@ -1,27 +1,34 @@
 import generateUniqueNumber from "../utils/generateUniqueNumber.js";
 
-const normalizeGames = async (games) => {
+const normalizeGames = async (game) => {
   try {
-    let image = {
-      url: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-      alt: "Business card image",
+    let image = {};
+
+    image = {
+      ...game.image,
+      url: game.image.url ||
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      alt: game.image.alt || "default game image",
     };
-    if (games.image && games.image.url) {
-      image.url = games.image.url;
+
+    if (game.image.alt && game.image.url) {
+      image = {
+        url: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        alt: "default movie image",
+      };
     }
-    if (games.image && games.image.alt) {
-      image.alt = games.image.alt;
-    }
+
     return {
-      ...games,
+      ...game,
       image,
-      address: {
-        ...games.address,
-        state: games.address.state || undefined,
-      },
-      web: games.web || undefined,
-      zip: games.zip || undefined,
-      bizNumber: games.bizNumber || (await generateUniqueNumber()),
+      trailer: game.trailer || undefined,
+      // address: {
+      //   ...games.address,
+      //   state: games.address.state || undefined,
+      // },
+      // web: game.web || undefined,
+      // zip: game.zip || undefined,
+      // bizNumber: game.bizNumber || (await generateUniqueNumber()),
     };
   } catch (err) {
     return Promise.reject(err);

@@ -112,7 +112,7 @@ const loginController = async (req, res) => {
       from: 'ehabmj1212@gmail.com',
       to: userType.email,
       subject: 'Reset Password Link',
-      text: `http://localhost:3000/reset_password/${userType._id}/${token}`,
+      text: `http://localhost:3030/reset_password/${userType._id}/${token}`,
       html: `
 <div style="background-color: #f5f5f5; padding: 20px; border-radius: 10px;">
 
@@ -187,8 +187,6 @@ const getUserByIdController = async (req, res) => {
     handleError(res, 400, err.message);
   }
 };
-
-
 
 export {
   loginController,

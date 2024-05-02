@@ -42,6 +42,7 @@ router.post(
   loginController
 );
 
+
 router.put(
   "/:id",
   authMiddleware,

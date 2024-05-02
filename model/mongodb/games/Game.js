@@ -2,43 +2,42 @@ import mongoose from "mongoose";
 import Image from "../users/Image.js";
 import Address from "../users/Address.js";
 import phoneRegex from "../../../utils/phoneRegex.js";
-import { DEFAULT_REQUIRED_STRING_VALIDATION } from "../helper/defaultStringValidation.helper.js";
+import URL from "../helper/urlStringValidation.js";
+import { DEFAULT_REQUIRED_STRING_VALIDATION, DEFAULT_STRING_VALIDATION } from "../helper/defaultStringValidation.helper.js";
 
 
 const GameSchema = new mongoose.Schema({
   title: DEFAULT_REQUIRED_STRING_VALIDATION,
-  subtitle: DEFAULT_REQUIRED_STRING_VALIDATION,
+  // subtitle: DEFAULT_REQUIRED_STRING_VALIDATION,
   description: {
     ...DEFAULT_REQUIRED_STRING_VALIDATION,
     maxLength: 1024,
   },
-  phone: {
-    type: String,
+  trailer: URL,
+  category: [DEFAULT_STRING_VALIDATION],
+
+  level: DEFAULT_STRING_VALIDATION,
+  rating: {
+    type: Number,
+    min: 3,
+    max: 6,
     required: true,
-    match: RegExp(phoneRegex),
   },
-  email: {
-    type: String,
+  discount: {
+    type: Number,
+    min: 0,
+    max: 100,
     required: true,
-    trim: true,
-    // unique: true,
-    match: RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/),
   },
-  web: {
-    type: String,
-    match: RegExp(
-      /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+/
-    ),
+  price: {
+    type: Number,
+    min: 0,
+    max: 1000,
+    required: true,
   },
   image: Image,
-  address: Address,
-  bizNumber: {
-    type: Number,
-    minLength: 7,
-    maxLength: 7,
-    required: true,
-  },
-  likes: [String],
+  likes: [],
+  Carts: [],
   createAt: {
     type: Date,
     default: Date.now,

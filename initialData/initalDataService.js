@@ -87,8 +87,8 @@ const initialGames = async (bizId) => {
   let games = [
     {
       title: "game 1",
-      subtitle: "sub game 1",
       description: "description game 1",
+      category: ["Action"],
       phone: "0500000000",
       email: "game1@gmail.com",
       address: {

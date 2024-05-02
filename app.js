@@ -20,6 +20,7 @@ app.use(function (req, res, next) {
   );
   next();
 });
+
 app.use(cors());
 app.use(
   helmet.contentSecurityPolicy({
