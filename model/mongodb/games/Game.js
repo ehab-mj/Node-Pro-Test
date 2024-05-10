@@ -15,8 +15,6 @@ const GameSchema = new mongoose.Schema({
   },
   trailer: URL,
   category: [DEFAULT_STRING_VALIDATION],
-
-  level: DEFAULT_STRING_VALIDATION,
   rating: {
     type: Number,
     min: 3,

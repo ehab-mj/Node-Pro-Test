@@ -4,8 +4,7 @@ const createGameSchema = Joi.object({
   title: Joi.string().min(2).max(256).required(),
   description: Joi.string().min(2).max(1024).required(),
   category: Joi.string().min(2).max(1024).required(),
-  level: Joi.string().min(2).max(1024).allow(""),
-  rating: Joi.number().min(3).max(6).allow(""),
+  rating: Joi.number().min(1).max(5).allow(""),
   discount: Joi.number().min(0).max(100).allow(""),
   price: Joi.number().min(0).max(1000).required(),
   image: Joi.object().keys({
