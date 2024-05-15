@@ -159,49 +159,42 @@ get an answer from this api
 ### <span style="color:#DD58D6">PATCH </span> /api/users/:id
 
 ================================================
-# Cards / https://documenter.getpostman.com/view/31306865/2sA2xe5upt
-## <span style="color:#45FFCA">To Get all cards:</span> 
-### <span style="color:#45FFCA">GET </span> /api/cards
+# Games / https://documenter.getpostman.com/view/31306865/2sA3JRYeJr
+## <span style="color:#45FFCA">To Get all games:</span> 
+### <span style="color:#45FFCA">GET </span> /api/games
 ================================================
-## <span style="color:#45FFCA">To Get cards by Id: </span>  
+## <span style="color:#45FFCA">To Get games by Id: </span>  
 
-### <span style="color:#45FFCA">GET </span> /api/cards/:id
+### <span style="color:#45FFCA">GET </span> /api/games/:id
 
 ================================================
 
-## <span style="color:#45FFCA">To Get all my cards: </span>  
+## <span style="color:#45FFCA">To Get all my games: </span>  
  1. - You need to provide a token to get an answer from this api
 get an answer from this api
-### <span style="color:#45FFCA">GET </span> /api/cards/my-cards
-[google](https://www.google.com)
+### <span style="color:#45FFCA">GET </span> /api/games/my-games
 
 ================================================
-## <span style="color:#FFE338">To create a new card:</span> 
+## <span style="color:#FFE338">To create a new game:</span> 
  1. - You need to provide a token to get an answer from this api
  2. - You need to be <span style="color:#FFE338">Biz type </span> user to get an answer from this api
 
-### <span style="color:#FFE338">POST </span> /api/cards/
+### <span style="color:#FFE338">POST </span> /api/games/
 
 In the request body you will need to provide an object with the following keys and values
 
 | index       | type   | index       | type   | min | max  | remark   |
 | ----------- | ------ | ----------- | ------ | --- | ---- | -------- |
 | title       | string |             |        | 2   | 256  | required |
-| subtitle    | string |             |        | 2   | 256  | required |
 | description | string |             |        | 2   | 1024 | required |
-| phone       | string |             |        | 9   | 11   | required |
-| email       | string |             |        | 5   |      | required |
-| web         | string |             |        | 14  |      |          |
+| category    | string |             |        | 2   | 1024 | required |
+| rating      | number |             |        | 1   | 5    |          |
+| discount    | number |             |        | 0   | 100  |          |
+| price       | number |             |        | 0   | 1000 | required |
 | image       | object |             |        |     |      | required |
 |             |        | url         | string | 14  |      |          |
 |             |        | alt         | string | 2   | 256  |          |
-| address     | object |             |        |     |      | required |
-|             |        | state       | string |     |      |          |
-|             |        | country     | string |     |      | required |
-|             |        | city        | string |     |      | required |
-|             |        | street      | string |     |      | required |
-|             |        | houseNumber | number | 1   |      | required |
-|             |        | zip         | number |     |      |          |
+| trailer     | string |             |        | 14  |      |          |
 
 ## Rules:
 - <span style="color:#FFE338">Password: </span> it must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters <span style="color:#FFE338">!@#$%^&\*- </span>
@@ -210,31 +203,25 @@ In the request body you will need to provide an object with the following keys a
 - <span style="color:#FFE338">Image: </span>it must be a URL
 
 ================================================
-## <span style="color:#9AC5F4">To update a card info:</span> 
+## <span style="color:#9AC5F4">To update a game info:</span> 
  1. - You need to provide a token to get an answer from this api
  2. - You will need to be a <span style="color:#9AC5F4">Business type</span> user to get an answer from this api
-### <span style="color:#9AC5F4">PUT </span> /api/cards/:id
+### <span style="color:#9AC5F4">PUT </span> /api/games/:id
 
 In the request body you will need to provide an object with the following keys and values
 
 | index       | type   | index       | type   | min | max  | remark   |
 | ----------- | ------ | ----------- | ------ | --- | ---- | -------- |
 | title       | string |             |        | 2   | 256  | required |
-| subtitle    | string |             |        | 2   | 256  | required |
 | description | string |             |        | 2   | 1024 | required |
-| phone       | string |             |        | 9   | 11   | required |
-| email       | string |             |        | 5   |      | required |
-| web         | string |             |        | 14  |      |          |
+| category    | string |             |        | 2   | 1024 | required |
+| rating      | number |             |        | 1   | 5    |          |
+| discount    | number |             |        | 0   | 100  |          |
+| price       | number |             |        | 0   | 1000 | required |
 | image       | object |             |        |     |      | required |
 |             |        | url         | string | 14  |      |          |
 |             |        | alt         | string | 2   | 256  |          |
-| address     | object |             |        |     |      | required |
-|             |        | state       | string |     |      |          |
-|             |        | country     | string |     |      | required |
-|             |        | city        | string |     |      | required |
-|             |        | street      | string |     |      | required |
-|             |        | houseNumber | number | 1   |      | required |
-|             |        | zip         | number |     |      |          |
+| trailer     | string |             |        | 14  |      |          |
 
 - <span style="color:#9AC5F4">Password: </span> it must be at least nine characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters <span style="color:#9AC5F4">!@#$%^&\*- </span>
 - <span style="color:#9AC5F4">Email: </span> it must be a standard email 
@@ -243,9 +230,9 @@ In the request body you will need to provide an object with the following keys a
 
 ================================================
 
-## <span style="color:#DD58D6">To patch a card and changing business number:</span> 
+## <span style="color:#DD58D6">To patch a game and changing business number:</span> 
  1. - You need to provide a token to get an answer from this api
-### <span style="color:#DD58D6">PATCH </span> /api/cards/biz-number/:id
+### <span style="color:#DD58D6">PATCH </span> /api/games/biz-number/:id
 In the request body you will need to provide an object with the following keys and values
  2. - You need to be <span style="color:#DD58D6">Admin type </span> user to get an answer from this api
 | index     | type   | min | max | remark   | from    | to      |
@@ -255,14 +242,14 @@ In the request body you will need to provide an object with the following keys a
 
 ================================================
 
-## <span style="color:#DD58D6">To Like a card:</span> 
+## <span style="color:#DD58D6">To Like a game:</span> 
 
-### <span style="color:#DD58D6">PATCH </span> /api/cards/:id
+### <span style="color:#DD58D6">PATCH </span> /api/games/:id
 
 ================================================
 
-## <span style="color:#F24C3D">To delete a card:</span> 
+## <span style="color:#F24C3D">To delete a game:</span> 
 
  1. - You need to provide a token to get an answer from this api
- 2. - it must be the user who created the card or <span style="color:#F24C3D">Admin type </span> user to to delete the business card
-### <span style="color:#F24C3D">DELETE </span> /api/cards/:id
+ 2. - it must be the user who created the game or <span style="color:#F24C3D">Admin type </span> user to to delete the business card
+### <span style="color:#F24C3D">DELETE </span> /api/games/:id
