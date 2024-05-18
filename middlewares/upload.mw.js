@@ -17,14 +17,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Serve static files (e.g., uploaded profile pictures)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Endpoint to handle profile picture upload
 app.post('/profile/', upload.single('profilePicture'), (req, res) => {
-    // Process the uploaded file
     const profilePicturePath = req.file.path;
-    // Optionally, you can save the file path to a database
     res.json({ profilePictureUrl: `/uploads/profilePictures/${req.file.filename}` });
 });
 

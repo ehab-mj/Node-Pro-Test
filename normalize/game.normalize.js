@@ -22,13 +22,6 @@ const normalizeGames = async (game) => {
       ...game,
       image,
       trailer: game.trailer || undefined,
-      // address: {
-      //   ...games.address,
-      //   state: games.address.state || undefined,
-      // },
-      // web: game.web || undefined,
-      // zip: game.zip || undefined,
-      // bizNumber: game.bizNumber || (await generateUniqueNumber()),
     };
   } catch (err) {
     return Promise.reject(err);

@@ -12,7 +12,6 @@ const createGameSchema = Joi.object({
     alt: Joi.string().min(2).max(256).allow(""),
   }),
   trailer: Joi.string().uri({ scheme: ["http", "https"] }).allow(""),
-  // active: Joi.boolean().allow(""),
 });
 
 const createGameSchemaValidation = (gameInput) => {
