@@ -1,8 +1,7 @@
 import User from "../model/mongodb/users/User.js";
 const UpdateUserFailedToLogin = async (user) => {
     try {
-        user.FailedLoginAttempts = new Date(); // Update last failed login timestamp
-        // Update user document in the database
+        user.FailedLoginAttempts = new Date();
         let user1 = await User.findByIdAndUpdate(user._id, {
             UserFailedToLogin: user.UserFailedToLogin,
 
