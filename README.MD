@@ -1,5 +1,11 @@
 # Getting Started with Node server App
 
+1. Install dependencies: `npm install`
+2. Create a `.env` file for environment variables:
+PORT=3030
+TOKEN_PRIVATE_KEY="waertgoipj03945e8u6"
+MONGODB_CON_STR="mongodb+srv://ehabmj1212:OEAG56yEisgktMJz@cluster0.zyneamq.mongodb.net/"
+
 ### <span style="color:#ff6600">Step 1: </span> Installation
 
 
